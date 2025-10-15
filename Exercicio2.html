@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Lista</title>
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+  }
+  input{
+    padding: 8px;
+    margin: 8px;
+    border-radius: 12px;
+    border: 1px solid;
+    border-width: 1px 1px;
+  }
+  button{
+    cursor: pointer;
+    padding: 8px;
+    margin: 6px;
+    border-radius: 5px;
+    border: 1px solid;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  #mensagem{
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Gerador de Lista</h1>
+  <input type="number" id="quantidade" placeholder="Digite a quantidade de iten(s)">
+  <button onclick="gerarLista()">Gerar Lista</button>
+
+  <p id="mensagem"></p>
+  <ul id="lista"></ul>
+
+  <script>
+    function gerarLista() {
+      const quantidade = parseInt(document.getElementById("quantidade").value);
+      const msg = document.getElementById("mensagem");
+      const lista = document.getElementById("lista");
+
+      msg.textContent = "";
+      lista.innerHTML = "";
+
+      if (isNaN(quantidade) || quantidade <= 0) {
+        msg.style.color = "black";
+        msg.textContent = "Por favor, insira um número válido.";
+        return;
+      }
+
+      msg.style.color = "black";
+      for (let i = 1; i <= quantidade; i++) {
+        const item = document.createElement("li");
+        item.textContent = `Daniel Ajala Elpes ${i}`;
+        lista.appendChild(item);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+//Esta é a aba de CSS que usei no one compile//
+
+body{
+  padding: 25px;
+}
+.title {
+	color: black;
+}
+
+//Esta é a aba de JS que usei no one compile//
+
+function showTime() {
+	document.getElementById('currentTime').innerHTML = new Date().toUTCString();
+}
+showTime();
+setInterval(function () {
+	showTime();
+}, 1000);
